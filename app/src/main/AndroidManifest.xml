@@ -15,6 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Empty_project"
         tools:targetApi="31">
+        <receiver
+            android:name=".searchwidget"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="@string/searchbutton" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/searchwidget_info" />
+        </receiver>
+
         <activity
             android:name=".WebViewActivity"
             android:exported="false" />
@@ -30,8 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>
