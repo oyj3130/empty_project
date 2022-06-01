@@ -3,11 +3,15 @@ package com.ocom.empty_project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    //각 객체들을 저장하기 위해 변수 선언
+    EditText texturl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +27,13 @@ public class MainActivity extends AppCompatActivity {
     }
     public void oninternetbtnclick(View v) {
 
+        //사용자 입력 URL 값 가져오기
+        texturl = findViewById(R.id.edittexturl);
+        String sendurl = texturl.getText().toString();
+
         Intent intent = new Intent(this, WebViewActivity.class);
+        //사용자 입력 URL을 indent로 넘기기
+        intent.putExtra("inputurl", sendurl);
         startActivity(intent);
     }
 

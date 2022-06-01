@@ -1,5 +1,6 @@
 package com.ocom.empty_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -39,10 +40,13 @@ public class WebViewActivity extends AppCompatActivity {
         //웹페이지 호출
         //webView.loadUrl("https://www.bing.com");
         //webView.loadUrl("https://www.google.com");
-        webView.loadUrl("https://m.naver.com/");
+        //webView.loadUrl("https://m.naver.com/");
         //webView.loadUrl("https://www.daum.net/");
 
-        //webView.loadUrl("https://eunoia3jy.tistory.com");
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras(); //bundle을 통해 Extra들을 모두 가져온다.
+        String inputurl = bundle.getString("inputurl");
+        webView.loadUrl(inputurl);
     }
 
 }
