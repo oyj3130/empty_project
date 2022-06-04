@@ -45,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         //사용자 입력 URL을 indent로 넘기기
         intent.putExtra("inputurl", sendurl);
         startActivity(intent);
+
+        /*
+        https://www.google.co.kr/search?q=
+        https://www.bing.com/search?q=
+        https://search.naver.com/search.naver?query=
+        https://search.daum.net/search?w=tot&q=
+         */
     }
 
 }
