@@ -2,6 +2,8 @@ package com.ocom.empty_project;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -18,7 +20,7 @@ public class WebViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
 
-        webView = (WebView) findViewById(R.id.webview);
+        webView = (WebView) findViewById(R.id.webview1);
 
         webView.setWebViewClient(new WebViewClient());  // 새 창 띄우기 않기
         webView.setWebChromeClient(new WebChromeClient());
@@ -48,5 +50,18 @@ public class WebViewActivity extends AppCompatActivity {
         String inputurl = bundle.getString("inputurl");
         webView.loadUrl(inputurl);
     }
-
+    public void onbtnclick(View v) {
+        /*
+        Log.e(String, String) - (ERROR)
+        Log.w(String, String) - (WARNING)
+        Log.i(String, String) - (INFO)
+        Log.d(String, String) - (DEBUG)
+        Log.v(String, String) - (VERBOSE)
+        Log.wtf(String, String) - (ASSERT)
+         */
+        Log.d("yoon", "web onbtnclick");
+        webView.setVisibility(View.GONE);
+        //WebView.setVisibility(View.GONE);
+        //WebView.setVisibility(View.VISIBLE);
+    }
 }
