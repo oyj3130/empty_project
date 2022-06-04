@@ -5,4 +5,8 @@
     <string name="app_widget_description">This is an app widget description</string>
     <string name="start_search">Start Search</string>
     <string name="searchbutton">SearchButton</string>
+    <string name="sub_activity">sub activity</string>
+    <string name="o_company">o company</string>
+    <string name="https_www_bing_com">https://www.bing.com</string>
+    <string name="webview">webview</string>
 </resources>

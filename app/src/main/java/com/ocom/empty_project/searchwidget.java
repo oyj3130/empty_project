@@ -1,6 +1,5 @@
 package com.ocom.empty_project;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
@@ -33,6 +32,7 @@ public class searchwidget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         Log.d("yoon", "widget onUpdate");
+        /*
         //------------Internet Code------------------//
         //https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mym0404&logNo=221345595300
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.searchwidget);
@@ -47,6 +47,7 @@ public class searchwidget extends AppWidgetProvider {
         for (int appWidgetId : appWidgetIds) {
             updateAppWidget(context, appWidgetManager, appWidgetId);
         }
+        */
     }
     //------------Internet Code------------------//
     //https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mym0404&logNo=221345595300

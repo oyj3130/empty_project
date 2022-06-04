@@ -8,3 +8,12 @@ https://sharp57dev.tistory.com/18
 - 3. 브로드캐스트 리시버(Broadcast Receiver)
 - 4. 컨텐트 프로바이더(Content Provider)
 ```
+## Log
+```
+Log.e(String, String) - (ERROR)
+Log.w(String, String) - (WARNING)
+Log.i(String, String) - (INFO)
+Log.d(String, String) - (DEBUG)
+Log.v(String, String) - (VERBOSE)
+Log.wtf(String, String) - (ASSERT)
+```
