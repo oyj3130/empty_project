@@ -1,7 +1,9 @@
 package com.ocom.empty_project;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 public class searchwidget extends AppWidgetProvider {
 
     private final String ACTION_BTN = "widgetbtnonclick";
+    private static final String MyOnClick1 = "myOnClickTag1";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
@@ -32,6 +35,23 @@ public class searchwidget extends AppWidgetProvider {
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
         Log.d("yoon", "widget onUpdate");
+
+        //User Code
+        // Get all ids
+        ComponentName thisWidget = new ComponentName(context, searchwidget.class);
+        int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+
+        for (int widgetId : allWidgetIds) {
+
+            RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.searchwidget);
+
+            remoteViews.setOnClickPendingIntent(R.id.button4, getPendingSelfIntent(context, MyOnClick1));
+
+            remoteViews.setTextViewText(R.id.appwidget_text, "gps cords");
+
+            appWidgetManager.updateAppWidget(widgetId, remoteViews);
+        }
+
         /*
         //------------Internet Code------------------//
         //https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mym0404&logNo=221345595300
@@ -49,17 +69,22 @@ public class searchwidget extends AppWidgetProvider {
         }
         */
     }
-    //------------Internet Code------------------//
-    //https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=mym0404&logNo=221345595300
+
+    protected PendingIntent getPendingSelfIntent(Context context, String action) {
+        Intent intent = new Intent(context, getClass());
+        intent.setAction(action);
+        //return PendingIntent.getBroadcast(context, 0, intent, 0);
+        return PendingIntent.getActivity(context, 0, intent, 0);
+    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
-        Log.w("Widget", "Clicked button1");
-        String action = intent.getAction();
-        Toast.makeText(context, "Button1", Toast.LENGTH_SHORT).show();
-        if(action.equals(context.getResources().getString(R.string.searchbutton))) {
-            Toast.makeText(context,"성공!",Toast.LENGTH_LONG).show();
+        Log.w("yoon", "Clicked button1");
+        if (MyOnClick1.equals(intent.getAction())) {
+            // your onClick action is here
+            Toast.makeText(context, "Button1", Toast.LENGTH_SHORT).show();
+            Log.w("yoon", "Clicked button1");
         }
     }
 
