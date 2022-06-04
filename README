@@ -1,0 +1,10 @@
+## Intent 개념
+https://sharp57dev.tistory.com/18
+```
+안드로이드의 애플리케이션 구성은 4대 컴포넌트로 이루어져 있습니다.
+4대 컴포넌트
+- 1. 액티비티(Activity)
+- 2. 서비스(Service)
+- 3. 브로드캐스트 리시버(Broadcast Receiver)
+- 4. 컨텐트 프로바이더(Content Provider)
+```
