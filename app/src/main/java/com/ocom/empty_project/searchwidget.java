@@ -73,7 +73,7 @@ public class searchwidget extends AppWidgetProvider {
     protected PendingIntent getPendingSelfIntent(Context context, String action) {
         Intent intent = new Intent(context, getClass());
         intent.setAction(action);
-        //return PendingIntent.getBroadcast(context, 0, intent, 0);
+
         return PendingIntent.getActivity(context, 0, intent, 0);
     }
 
@@ -81,6 +81,7 @@ public class searchwidget extends AppWidgetProvider {
     public void onReceive(Context context, Intent intent) {
         super.onReceive(context, intent);
         Log.w("yoon", "Clicked button1");
+        Log.w("yoon", intent.getAction());
         if (MyOnClick1.equals(intent.getAction())) {
             // your onClick action is here
             Toast.makeText(context, "Button1", Toast.LENGTH_SHORT).show();
